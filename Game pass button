@@ -1,0 +1,10 @@
+local donationButton = script.Parent
+
+-- ID of the Game Pass (create this on Roblox website under your game)
+local gamePassId = 927142167  -- Replace with your actual Game Pass ID
+
+donationButton.MouseButton1Click:Connect(function()
+    -- Prompt the player to purchase the game pass
+    game:GetService("MarketplaceService"):PromptGamePassPurchase(game.Players.LocalPlayer, gamePassId)
+end)
+
