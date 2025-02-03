@@ -1,0 +1,14 @@
+local button = script.Parent -- The button
+local targetPosition = Vector3.new(100, 5, 50) -- Replace with the position you want to teleport players to
+
+button.MouseButton1Click:Connect(function()
+    local player = game.Players.LocalPlayer -- Get the player
+    local character = player.Character or player.CharacterAdded:Wait() -- Ensure the character exists
+    local rootPart = character:FindFirstChild("HumanoidRootPart") -- Find the HumanoidRootPart
+
+    if rootPart then
+        rootPart.CFrame = CFrame.new(targetPosition) -- Teleport the player to the target position
+    else
+        warn("HumanoidRootPart not found!") -- Debug message if something goes wrong
+    end
+end)
